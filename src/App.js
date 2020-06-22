@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import SearchBar from "./components/SearchBar/SearchBar";
+import SearchResults from "./components/SearchResults/SearchResults";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: [
+        {
+          name: "yellow",
+          artist: "coldplay",
+          album: "fix",
+          id: 1
+        },
+        {
+          name: "wait",
+          artist: "m83",
+          album: "lala",
+          id: 2
+        },
+        {
+          name: "all you need is love",
+          artist: "beatles",
+          album: "lili",
+          id: 3
+        }
+      ]
+    };
+    this.search = this.search.bind(this);
+  }
+
+  search(searchTerm) {
+    console.log(searchTerm);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Get That Song</h1>
+        <div className="App">
+          <SearchBar onSearch={this.search} />
+          <div className="App-playlist">
+            <SearchResults searchResults={this.state.searchResults} />
+            {/* Add a Playlist component */}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
