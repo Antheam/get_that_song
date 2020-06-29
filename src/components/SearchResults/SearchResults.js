@@ -7,7 +7,10 @@ class SearchResults extends React.Component {
     return (
       <div className="SearchResults">
         <h2>Results</h2>
-        <TrackList tracks={this.props.searchResults} />
+        {this.props.soundtracks.map(soundtrack => {
+          return <TrackList soundtrack={soundtrack} />;
+        })}
+        {/* <TrackList tracks={this.props.searchResults} /> */}
       </div>
     );
   }

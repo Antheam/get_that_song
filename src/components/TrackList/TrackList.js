@@ -5,9 +5,9 @@ import Track from "../Track/Track";
 class TrackList extends React.Component {
   render() {
     return (
-      <div class="TrackList">
-        {this.props.tracks.map(track => {
-          return <Track track={track} key={track.id} />;
+      <div className="TrackList">
+        {this.props.soundtrack.map(song => {
+          return <Track track={song} />;
         })}
       </div>
     );
