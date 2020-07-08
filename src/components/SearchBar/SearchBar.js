@@ -7,21 +7,19 @@ class SearchBar extends React.Component {
     this.state = {
       term: ""
     };
-    this.handleTermChange = this.handleTermChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  // search() {
-  //   this.props.onSearch(this.state.term);
-  // }
-
-  handleTermChange(e) {
-    this.setState = { term: e.target.value };
+  handleSearchChange(e) {
+    console.log(e.target.value);
+    this.setState({ term: e.target.value });
   }
 
-  handleSearch(e) {
+  handleSearch() {
+    console.log(this.state.term);
     this.props.searchSpotify(this.state.term);
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   render() {
@@ -29,7 +27,7 @@ class SearchBar extends React.Component {
       <div className="SearchBar">
         <input
           placeholder="Enter film title to search soundtracks"
-          onChange={this.handleTermChange}
+          onChange={this.handleSearchChange}
         />
         <button className="SearchButton" onClick={this.handleSearch}>
           SEARCH

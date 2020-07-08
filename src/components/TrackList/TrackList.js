@@ -6,8 +6,8 @@ class TrackList extends React.Component {
   render() {
     return (
       <div className="TrackList">
-        {this.props.soundtrack.map(song => {
-          return <Track track={song} />;
+        {this.props.tracks.map(song => {
+          return <Track song={song} />;
         })}
       </div>
     );
