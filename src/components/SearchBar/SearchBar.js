@@ -9,6 +9,7 @@ class SearchBar extends React.Component {
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleSearchFilm = this.handleSearchFilm.bind(this);
   }
 
   handleSearchChange(e) {
@@ -21,7 +22,10 @@ class SearchBar extends React.Component {
     this.props.searchSpotify(this.state.term);
     // e.preventDefault();
   }
-
+  handleSearchFilm() {
+    console.log(this.state.term);
+    this.props.searchOmdb(this.state.term);
+  }
   render() {
     return (
       <div className="SearchBar">
@@ -29,7 +33,14 @@ class SearchBar extends React.Component {
           placeholder="Enter film title to search soundtracks"
           onChange={this.handleSearchChange}
         />
-        <button className="SearchButton" onClick={this.handleSearch}>
+        <button
+          className="SearchButton"
+          onClick={() => {
+            this.handleSearch();
+            this.handleSearchFilm();
+          }}
+          // onClick={this.handleSearchFilm}
+        >
           SEARCH
         </button>
       </div>
