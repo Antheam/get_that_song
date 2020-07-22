@@ -6,7 +6,10 @@ https://getsoundtracks.herokuapp.com/
 
 ## Installation
 
+```
 $ git clone https://github.com/Antheam/get_that_song.git
 $ cd get_that_song
 $ npm start
+
+```
 
