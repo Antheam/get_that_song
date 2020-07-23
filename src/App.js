@@ -20,6 +20,10 @@ class App extends React.Component {
     this.searchOmdb = this.searchOmdb.bind(this);
   }
 
+  searchYoutube(name, artist) {
+    getYoutubeLink(name, artist);
+  }
+
   searchSpotify(search) {
     console.log(search);
     makeCall(search).then(soundtracks => {
@@ -45,7 +49,10 @@ class App extends React.Component {
             searchOmdb={this.searchOmdb}
           />
           <div className="App-playlist">
-            <SearchResults soundtracks={this.state.soundtracks} />
+            <SearchResults
+              soundtracks={this.state.soundtracks}
+              youtubeLink={this.searchYoutube}
+            />
           </div>
           <div>
             <Film film={this.state.film} />
