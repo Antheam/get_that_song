@@ -53,7 +53,7 @@ function getSongs(search) {
       let tracks = data.playlists.items[0].href;
 
       return fetch(
-        `${tracks}/tracks?fields=items(track(name,artists(name),album(name,href)))`,
+        `${tracks}/tracks?fields=items(track(name,artists(name),album(name,href),id))`,
         {
           headers: {
             Authorization: tokenType + " " + token,
@@ -68,7 +68,8 @@ function getSongs(search) {
       return data.items.map(info => ({
         name: info.track.name,
         artist: info.track.artists[0].name,
-        album: info.track.album.name
+        album: info.track.album.name,
+        id: info.track.id
       }));
       // console.log(data);
     });

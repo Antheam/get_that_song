@@ -1,4 +1,4 @@
-function getYoutubeLink() {
+export function getYoutubeLink() {
   return fetch(
     `https://www.googleapis.com/youtube/v3/search?key=AIzaSyBhdxjToxjGIcG4AWCJaIh_J9sgOtjPSnI&q=sunflower`
   )

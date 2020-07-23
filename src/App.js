@@ -6,6 +6,7 @@ import SearchResults from "./components/SearchResults/SearchResults";
 import { makeCall } from "./util/Spotify";
 import Film from "./components/Film/Film";
 import { getFilm } from "./util/Omdb";
+import { getYoutubeLink } from "./util/Youtube";
 
 class App extends React.Component {
   constructor(props) {
