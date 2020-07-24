@@ -9,7 +9,7 @@ https://getsoundtracks.herokuapp.com/
 ```
 $ git clone https://github.com/Antheam/get_that_song.git
 $ cd get_that_song
+$ npm install
 $ npm start
 
 ```
-
