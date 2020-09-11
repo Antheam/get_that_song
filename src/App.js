@@ -1,66 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./App.css";
-import SearchBar from "./components/SearchBar/SearchBar";
-import SearchResults from "./components/SearchResults/SearchResults";
-import { makeCall } from "./util/Spotify";
-import Film from "./components/Film/Film";
-import { getFilm } from "./util/Omdb";
-import { getYoutubeLink } from "./util/Youtube";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      soundtracks: [],
-      film: {}
-    };
+import Home from "./components/Home/Home.jsx";
 
-    this.searchSpotify = this.searchSpotify.bind(this);
-    this.searchOmdb = this.searchOmdb.bind(this);
-  }
+import UserProfile from "./components/UserProfile/UserProfile.jsx";
 
-  searchYoutube(name, artist) {
-    getYoutubeLink(name, artist);
-  }
-
-  searchSpotify(search) {
-    console.log(search);
-    makeCall(search).then(soundtracks => {
-      this.setState({ soundtracks: soundtracks });
-    });
-  }
-
-  searchOmdb(search) {
-    getFilm(search).then(filmDetail => {
-      console.log(filmDetail);
-      this.setState({ film: filmDetail });
-    });
-    console.log(this.state.film);
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Get That Song</h1>
-        <div className="App">
-          <SearchBar
-            searchSpotify={this.searchSpotify}
-            searchOmdb={this.searchOmdb}
-          />
-          <div className="App-playlist">
-            <SearchResults
-              soundtracks={this.state.soundtracks}
-              youtubeLink={this.searchYoutube}
-            />
-          </div>
-          <div>
-            <Film film={this.state.film} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/profile" component={UserProfile} />
+        </Switch>
+      </Router>
+    </div>
+  );
+};
 
 export default App;
